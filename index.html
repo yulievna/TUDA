@@ -7,16 +7,40 @@
 </head>
 <body>
     <div id="block" style="width: 100px; height: 100px; margin: 10px; background-color: rgb(176, 65, 65)"></div>
-    <button id="button" onclick="generateColor()" style="height: 20px; width: 100px; margin-left: 10px; text-align: center; font-size: 10px; background-color: rgb(199, 116, 116); border-radius: 20px;">Change the color</button>
+    <button onclick="generateColor()" style="height: 20px; width: 100px; margin-left: 10px; text-align: center; font-size: 10px; background-color: rgb(199, 116, 116); border-radius: 20px;">Change the color</button>
+    
+    <div id="block2" style="width: 100px; height: 100px; margin: 10px; background-color: black"></div>
+    <input id="input2" type="text" placeholder="Введите число до 100" style="text-align: center; font-size: 10px;">
+    <button onclick="generateColorByNumber()" style="height: 20px; width: 100px; margin-left: 10px; text-align: center; font-size: 10px; background-color: rgb(137, 191, 210); border-radius: 20px;">Change the color</button>
+
     <script>
         function generateColor(){
             var block = document.getElementById("block")
-            var button = document.getElementById("button")
                 r = Math.floor(Math.random() * (256)),
                 g = Math.floor(Math.random() * (256)),
                 b = Math.floor(Math.random() * (256)),
                 color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
             block.style.background = color
+        }
+
+        function generateColorByNumber(){
+            var block = document.getElementById("block2")
+            var input = Number(document.getElementById("input2").value)
+
+            if (!input){
+                alert('Введите число')
+                document.getElementById("input2").value = ""
+            }
+            else if(input == 0){
+                block.style.background = "black"
+            } else if (input <= 0 ){
+                block.style.background = "red"
+            } else if (input > 0 && input <100) {
+                block.style.background = "blue"
+            } else if (input >= 100) {
+                block.style.background = "green"
+            }
+
         }
     </script>
 </body>
