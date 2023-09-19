@@ -6,7 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div style="width: 100px; height: 100px; color: black"></div>
-    <button style="height: 30px; width: 100px; margin: 10px; text-align: center;">Change the color</button>
+    <div id="block" style="width: 100px; height: 100px; margin: 10px; background-color: rgb(176, 65, 65)"></div>
+    <button id="button" onclick="generateColor()" style="height: 20px; width: 100px; margin-left: 10px; text-align: center; font-size: 10px; background-color: rgb(199, 116, 116); border-radius: 20px;">Change the color</button>
+    <script>
+        function generateColor(){
+            var block = document.getElementById("block")
+            var button = document.getElementById("button")
+                r = Math.floor(Math.random() * (256)),
+                g = Math.floor(Math.random() * (256)),
+                b = Math.floor(Math.random() * (256)),
+                color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+            block.style.background = color
+        }
+    </script>
 </body>
 </html>
